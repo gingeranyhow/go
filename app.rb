@@ -4,6 +4,9 @@ require 'sinatra/sequel'
 require 'sinatra/respond_with'
 require 'json'
 
+# added this to make the Model.order(:symbol.desc) syntax work. May want to not use the core extensions long-term.
+Sequel.extension :core_extensions
+
 class Link < Sequel::Model
   def hit!
     self.hits += 1
