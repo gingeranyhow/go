@@ -18,10 +18,18 @@ Features:
 [![Go](http://img.svbtle.com/inline_maccman_24199375604490_raw.png)](https://github.com/maccman/go)
 
 ## Usage
+The first time you run go, remember to copy the example database config to the right place:
+
+    `cp config/database.yml.example config/database.yml`
+
+
+Then do:
 
     bundle install
     rake db:migrate
     rackup
+
+    
 
 ## Network
 
