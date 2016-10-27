@@ -18,7 +18,17 @@
                  required>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" name="description" placeholder="Description">
+          <input type="text"
+                 class="form-control"
+                 name="email"
+                 placeholder="Email"
+                 required>
+        </div>
+        <div class="form-group">
+          <input type="text"
+                 class="form-control"
+                 name="description"
+                 placeholder="Description">
         </div>
         <button type="submit" class="btn btn-default">Create</button>
       </form>
@@ -44,6 +54,7 @@
             <th>Alias</th>
             <th>URL</th>
             <th>Description</th>
+            <th>Email</th>
             <th># Hits</th>
             <th></th>
           </tr>
@@ -54,6 +65,7 @@
               <td id="alias"><a href="/<%= link.name %>"><%= link.name %></a></td>
               <td><div class="ellipsis" id="url"><%= link.url %></div></td>
               <td id="description"><%= link.description %></td>
+              <td id="email"><%= link.email %></td>
               <td><%= link.hits %></td>
               <td>
                 <button type="button" class="btn btn-default btn-xs edit-link-button">
@@ -101,6 +113,17 @@
                   </div>
                 </div>
                 <div class="form-group">
+                  <label class="col-sm-2 control-label" for="inputEmail">Email</label>
+                  <div class="col-sm-10">
+                    <input id="inputEmail"
+                           type="text"
+                           class="form-control"
+                           name="email"
+                           placeholder="Email"
+                           required>
+                  </div>
+                </div>
+                <div class="form-group">
                   <label class="col-sm-2 control-label" for="inputDescription">Description</label>
                   <div class="col-sm-10">
                     <input id="inputDescription"
@@ -136,9 +159,11 @@ $(function() {
     var $this = $(this);
     var $parent = $this.parent().parent();
     var id = $parent.attr('data-link-id');
+
     $("#currentLinkId").val(id);
     $("#inputAlias").val($parent.find('#alias').text());
     $("#inputUrl").val($parent.find('#url').html());
+    $("#inputEmail").val($parent.find('#email').html());
     $("#inputDescription").val($parent.find('#description').html());
 
     var $form = $('#edit-form');

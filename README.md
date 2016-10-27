@@ -35,3 +35,6 @@ to the relevant destination. You can make 'go' resolve in one of two ways.
    searched when resolving urls. For example, you could set a 'Search Domain'
    to be `mycompany.local`, and then create the CNAME `go.mycompany.local`.
    Then, 'go' would always resolve to whatever server the CNAME points to.
+
+## Updating Database
+Add new migration and then run ```rake db:migrate:up``` to update to the latest. 

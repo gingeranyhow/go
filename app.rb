@@ -17,6 +17,7 @@ class Link < Sequel::Model
     super
     errors.add(:name, 'cannot be empty') if !name || name.empty?
     errors.add(:url, 'cannot be empty') if !url || url.empty?
+    errors.add(:email, 'cannot be empty') if !email || email.empty?
   end
 
   def to_json
@@ -25,6 +26,7 @@ class Link < Sequel::Model
       url: self.url,
       description: self.description,
       hits: self.hits,
+      email: self.email
     }
   end
 
@@ -57,6 +59,7 @@ post '/links' do
       :name => params[:name].strip,
       :url  => params[:url].strip,
       :description  => params[:description].strip,
+      :email => params[:email].strip
     )
     redirect '/'
   rescue Sequel::ValidationFailed,
@@ -100,6 +103,7 @@ post '/links/:id/update' do
     link.name = params[:name]
     link.description = params[:description]
     link.url = params[:url]
+    link.email = params[:email]
     link.save
     redirect '/'
   rescue Sequel::ValidationFailed,

@@ -18,4 +18,3 @@ Sequel.migration do
     drop_table(:links)
   end
 end
-
